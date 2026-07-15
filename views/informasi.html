@@ -1,0 +1,560 @@
+<!-- FILE: views/informasi.html --->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pusat Informasi & Layanan PLASMA | BEM KBMFKG UMI</title>
+    
+    <!-- ================= SEO GOLD STANDARD GSC ================= -->
+    <meta name="google-site-verification" content="HOYu_9mzpV_WcNdVlpdW4qzkAVt2p9f3C1kE7tY-8G8" />
+    <meta name="description" content="Akses cepat untuk program kerja, kalender kegiatan, galeri dokumentasi, dan layanan PLASMA (Penyaluran Aspirasi Mahasiswa) resmi dari BEM KBMFKG UMI.">
+    <meta name="keywords" content="Informasi BEM FKG UMI, Proker BEM FKG, Kalender BEM FKG UMI, Aspirasi Mahasiswa FKG UMI, PLASMA BEM FKG">
+    <meta name="author" content="BEM KBMFKG UMI">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://bemkbmfkgumi.com/informasi">
+    
+    <!-- FIX RENDER BLOCKING -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="/css/main.css" as="style">
+    <link rel="stylesheet" href="/css/main.css">
+    
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bemkbmfkgumi.com/informasi">
+    <meta property="og:site_name" content="BEM KBMFKG UMI">
+    <meta property="og:title" content="Pusat Informasi & Layanan PLASMA | BEM KBMFKG UMI">
+    <meta property="og:description" content="Akses program kerja, kalender kegiatan, galeri dokumentasi, dan sampaikan aspirasi Anda melalui layanan PLASMA BEM KBMFKG UMI.">
+    <meta property="og:image" content="https://bemkbmfkgumi.com/img/bemfkgumi.png">
+    <meta property="og:image:alt" content="Logo BEM KBMFKG UMI">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bemkbmfkgumi.com/informasi">
+    <meta property="twitter:title" content="Pusat Informasi & Layanan PLASMA | BEM KBMFKG UMI">
+    <meta property="twitter:description" content="Akses program kerja, kalender kegiatan, galeri dokumentasi, dan sampaikan aspirasi Anda melalui layanan PLASMA BEM KBMFKG UMI.">
+    <meta property="twitter:image" content="https://bemkbmfkgumi.com/img/bemfkgumi.png">
+
+    <!-- ADVANCED JSON-LD Schema.org -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Pusat Informasi & Layanan PLASMA",
+        "url": "https://bemkbmfkgumi.com/informasi",
+        "description": "Layanan publik, informasi program kerja, kalender, dan sistem aspirasi mahasiswa BEM KBMFKG UMI."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Beranda",
+          "item": "https://bemkbmfkgumi.com/"
+        },{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Pusat Informasi",
+          "item": "https://bemkbmfkgumi.com/informasi"
+        }]
+      }
+    ]
+    </script>
+
+    <link rel="icon" type="image/png" href="/img/bemfkgumi.png">
+    <link rel="apple-touch-icon" href="/img/bemfkgumi.png">
+    <script src="/js/protect-devtools.js"></script>
+</head>
+<body>
+    <%- include('partials/header.html') %>
+    <main class="container" style="padding-top: 40px; min-height: 80vh; padding-bottom: 80px;">
+        
+        <div class="reveal" style="text-align: center; margin-bottom: 40px;">
+            <div class="clay-badge" style="margin-bottom: 15px;">LAYANAN MAHASISWA</div>
+            <h1 style="font-size: 3rem; font-weight: 900;">Pusat <span style="color: var(--accent-neon);">Informasi</span></h1>
+        </div>
+
+        <nav class="tab-nav reveal" id="tabNavMenu" style="transition-delay: 0.1s;" role="tablist">
+            <button class="tab-btn active" onclick="switchTab('proker')" role="tab" aria-selected="true" aria-label="Lihat Program Kerja Departemen">Program Kerja</button>
+            <button class="tab-btn" onclick="switchTab('kalender')" role="tab" aria-selected="false" aria-label="Lihat Kalender Program Kerja">Kalender Proker</button>
+            <button class="tab-btn" onclick="switchTab('timeline')" role="tab" aria-selected="false" aria-label="Lihat Timeline Proker">Timeline Proker</button>
+            <button class="tab-btn" onclick="switchTab('galeri')" role="tab" aria-selected="false" aria-label="Lihat Dokumentasi Kegiatan">Dokumentasi</button>
+            <button class="tab-btn" onclick="switchTab('plasma')" role="tab" aria-selected="false" aria-label="Form Aspirasi PLASMA">PLASMA (Aspirasi)</button>
+        </nav>
+
+        <!-- ================= SUPER UPGRADE: TAB 1 PROKER (APPLE GLASSMORPHISM) ================= -->
+        <section id="proker" class="tab-content active" role="tabpanel">
+            <div id="prokerContainer" class="proker-grid-apple">
+                <div style="text-align:center; grid-column: 1/-1; color: var(--text-muted); padding: 50px 0;">Mensinkronisasi data 9 Departemen...</div>
+            </div>
+        </section>
+
+        <!-- TAB 2: KALENDER -->
+        <section id="kalender" class="tab-content" role="tabpanel">
+            <div class="calendar-wrapper">
+                <div class="glass-card" style="padding: 30px; border-top: 4px solid var(--accent-neon); align-self: start;">
+                    <div class="calendar-header" style="margin-bottom: 30px;">
+                        <button class="action-btn" onclick="gantiBulan(-1)" style="font-size: 1.2rem; padding: 5px 15px; border-radius: 10px;" aria-label="Bulan sebelumnya">&larr;</button>
+                        <span id="namaBulanTahun" style="font-size: 1.5rem; letter-spacing: 2px;">JULI 2026</span>
+                        <button class="action-btn" onclick="gantiBulan(1)" style="font-size: 1.2rem; padding: 5px 15px; border-radius: 10px;" aria-label="Bulan selanjutnya">&rarr;</button>
+                    </div>
+                    <div class="calendar-grid" id="calGrid" style="gap: 15px;"></div>
+                </div>
+                
+                <div class="agenda-list">
+                    <div style="font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;" id="agendaSubtitle">DAFTAR AGENDA</div>
+                    <h3 style="border-bottom: 1px solid var(--border-light); padding-bottom: 15px; margin-bottom: 20px; font-size: 1.5rem;" id="agendaTglFormat">
+                        Semua Agenda Bulan Ini
+                    </h3>
+                    <div id="agendaContent" aria-live="polite">
+                        <div style="text-align:center;">Memuat agenda...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: TIMELINE PROKER VERTICAL -->
+        <section id="timeline" class="tab-content" role="tabpanel">
+            <div class="reveal" style="text-align: center; margin-bottom: 40px;">
+                <h2 style="font-size: 2.5rem; color: var(--text-light);">Timeline <span style="color: var(--accent-neon);">Program Kerja</span></h2>
+                <p style="color: var(--text-muted); margin-top: 10px;">Perjalanan program kerja dan agenda BEM selama satu periode kepengurusan.</p>
+            </div>
+            
+            <div class="v-timeline-container" id="timelineProkerContainer">
+                <div style="text-align:center; color: var(--text-muted);">Mensinkronisasi data timeline...</div>
+            </div>
+        </section>
+
+        <!-- TAB 4: DOKUMENTASI (GALERI) -->
+        <section id="galeri" class="tab-content" role="tabpanel">
+            <div class="gallery-grid" id="galleryContainer"></div>
+        </section>
+
+        <!-- TAB 5: PLASMA (ASPIRASI) -->
+        <section id="plasma" class="tab-content" role="tabpanel">
+            <div class="glass-card" style="max-width: 800px; margin: 0 auto; border-top: 3px solid var(--accent-neon);">
+                <h2 style="color: var(--accent-neon); text-align: center; margin-bottom: 10px; font-size: 2.5rem;">P.L.A.S.M.A</h2>
+                <p style="text-align: center; color: var(--text-muted); margin-bottom: 30px;">Pusat Layanan Aspirasi Mahasiswa</p>
+                
+                <form id="plasmaForm">
+                    <label for="judul" style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 8px; display: block; font-weight: bold;">Judul Aspirasi <span style="color:#ef4444">*</span></label>
+                    <input type="text" id="judul" class="neo-input" placeholder="Tuliskan judul singkat aspirasi Anda..." required>
+            
+                    <label for="kategori" style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 8px; display: block; font-weight: bold;">Kategori Aspirasi <span style="color:#ef4444">*</span></label>
+                    <select id="kategori" class="neo-input" required>
+                        <option value="" disabled selected>1. Pilih kategori</option>
+                        <option value="Akademik">2. Akademik</option>
+                        <option value="Fasilitas Kampus">3. Fasilitas Kampus</option>
+                        <option value="Keuangan/UKT">4. Keuangan/UKT</option>
+                        <option value="Organisasi">5. Organisasi</option>
+                        <option value="Pelayanan Kampus">6. Pelayanan Kampus</option>
+                        <option value="Lainnya">7. Lainnya</option>
+                    </select>
+            
+                    <fieldset style="border:none; padding:0; margin-bottom: 20px;">
+                        <legend style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 12px; display: block; font-weight: bold;">Jenis Aspirasi <span style="color:#ef4444">*</span></legend>
+                        <div style="display:flex; gap:10px; flex-wrap: wrap;">
+                            <label class="clay-badge"><input type="radio" name="jenis" value="Saran" checked> 1. Saran</label>
+                            <label class="clay-badge"><input type="radio" name="jenis" value="Pengaduan"> 2. Pengaduan</label>
+                            <label class="clay-badge"><input type="radio" name="jenis" value="Kritik"> 3. Kritik</label>
+                            <label class="clay-badge"><input type="radio" name="jenis" value="Permintaan Informasi"> 4. Permintaan Info</label>
+                        </div>
+                    </fieldset>
+            
+                    <label for="isi" style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 8px; display: block; font-weight: bold;">Isi Aspirasi <span style="color:#ef4444">*</span></label>
+                    <textarea id="isi" class="neo-input" rows="6" placeholder="Ceritakan detail aspirasi Anda di sini..." required></textarea>
+            
+                    <label for="bukti" style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 8px; display: block; font-weight: bold;">Bukti Pendukung <span style="color:var(--text-muted); font-weight:normal;">(Opsional - JPG/PNG/PDF)</span></label>
+                    <input type="file" id="bukti" class="neo-input" accept="image/*,.pdf" style="padding: 12px; color: var(--text-muted); cursor: pointer;">
+            
+                    <div style="display: flex; gap: 15px; align-items: flex-start; margin-bottom: 30px; background: var(--bg-dark-overlay); padding: 18px; border-radius: 12px; border-left: 4px solid var(--accent-neon);">
+                        <input type="checkbox" id="setuju" required style="width: 22px; height: 22px; margin-top: 2px; accent-color: var(--accent-neon); cursor: pointer;">
+                        <label for="setuju" style="color: var(--text-light); font-size: 0.95rem; line-height: 1.6; cursor: pointer;">Saya bersedia dihubungi oleh pihak Admin BEM FKG UMI apabila diperlukan klarifikasi lebih lanjut mengenai aspirasi ini <span style="color:#ef4444">*</span></label>
+                    </div>
+            
+                    <button type="submit" class="holo-btn" style="width: 100%; font-size: 1.1rem; padding: 16px;">Kirim Aspirasi</button>
+                </form>
+                <div id="plasmaResult" style="margin-top:20px; text-align:center; display:none; padding:15px; border-radius:10px; font-weight: bold;" aria-live="polite"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal Pop-up Dokumentasi -->
+    <div class="modal-overlay" id="docModal" role="dialog" aria-modal="true" aria-labelledby="docTitle">
+        <div class="modal-content-box" style="padding: 0; overflow: hidden;">
+            <button class="modal-close" onclick="document.getElementById('docModal').classList.remove('active')" aria-label="Tutup Galeri">X</button>
+            <div style="width: 100%; max-height: 400px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: var(--bg-dark-heavy);">
+                <img id="docImg" src="" style="width:100%; object-fit: contain; max-height: 400px;" alt="Dokumentasi" width="650" height="400" loading="lazy">
+            </div>
+            <div style="padding: 30px;">
+                <h2 id="docTitle" style="color: var(--accent-neon); margin-bottom: 5px;">Judul Kegiatan</h2>
+                <p id="docDate" style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;"></p>
+                <p id="docDesc" style="line-height: 1.8; color: var(--text-light);"></p>
+            </div>
+        </div>
+    </div>
+
+    <%- include('partials/footer.html') %>
+
+    <script>
+        // ================= GRACEFUL DEGRADATION: DATA DUMMY JIKA API ERROR =================
+        const FALLBACK_PROKER = [
+            {
+                id: "pubmed",
+                dept: "DEPT. INFOCOM",
+                fotoPengurus: "/img/bemfkgumi.png", 
+                shortDesc: "PubMed (PublikasiMedia Elektronik & Media Cetak) BukuKBMFKG-UMI"
+            }
+        ];
+
+        let kalenderData = [];
+        let curDate = new Date(); 
+        const monthNames = ["JANUARI","FEBRUARI","MARET","APRIL","MEI","JUNI","JULI","AGUSTUS","SEPTEMBER","OKTOBER","NOVEMBER","DESEMBER"];
+        const dayNames = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+        
+        document.addEventListener('DOMContentLoaded', async () => {
+            document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+            let resData = { proker: [], dokumentasi: [], kalender: [] };
+            
+            try {
+                let apiUrl = '/api/content';
+                if(window.location.protocol === 'blob:' || window.location.origin === "null") apiUrl = 'https://bemkbmfkgumi.com/api/content';
+                const req = await fetch(apiUrl);
+                if (req.ok) {
+                    resData = await req.json();
+                } else {
+                    throw new Error("Fetch Error");
+                }
+            } catch (err) { 
+                console.warn("⚠️ API Error, menggunakan data lokal (Fallback) untuk mencegah layout rusak."); 
+                resData.proker = FALLBACK_PROKER; 
+            }
+            
+            renderProker(resData.proker);
+            renderDokumentasi(resData.dokumentasi);
+            kalenderData = resData.kalender || [];
+            
+            renderCalendar();
+            renderTimelineProker();
+
+            handleHashTabOnLoad();
+        });
+
+        function switchTab(t) {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-selected', 'false');
+            });
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            const targetBtn = document.querySelector(`.tab-btn[onclick="switchTab('${t}')"]`);
+            if(targetBtn) {
+                targetBtn.classList.add('active');
+                targetBtn.setAttribute('aria-selected', 'true');
+            }
+            
+            const targetSection = document.getElementById(t);
+            if(targetSection) {
+                targetSection.classList.add('active');
+                targetSection.style.opacity = '0';
+                setTimeout(() => { targetSection.style.opacity = '1'; }, 50);
+
+                if(window.location.hash !== '#' + t) { history.pushState(null, null, '#' + t); }
+                if(t === 'kalender') { renderCalendar(); tampilkanAgendaSebulan(); }
+            }
+        }
+
+        function handleHashTabOnLoad() {
+            const hash = window.location.hash.substring(1);
+            const validTabs = ['proker', 'kalender', 'timeline', 'galeri', 'plasma'];
+            if (hash && validTabs.includes(hash)) {
+                switchTab(hash);
+                setTimeout(() => {
+                    const navEl = document.getElementById('tabNavMenu');
+                    if (navEl) { window.scrollTo({ top: navEl.getBoundingClientRect().top - 100, behavior: 'smooth' }); }
+                }, 300);
+            }
+        }
+
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.substring(1);
+            const validTabs = ['proker', 'kalender', 'timeline', 'galeri', 'plasma'];
+            if (hash && validTabs.includes(hash)) { switchTab(hash); }
+        });
+
+        // ================= SUPER BIG UPGRADE: RENDER DEPARTEMEN GLASSMORPHISM (DESAIN APPLE UI) =================
+        function renderProker(prokerData) {
+            const pCont = document.getElementById('prokerContainer'); 
+            pCont.innerHTML = '';
+            
+            if(prokerData && prokerData.length > 0) {
+                prokerData.forEach(p => {
+                    // SEKARANG MENGGUNAKAN FOTO PENGURUS (900x600) BUKAN BANNER LAGI
+                    const bgImg = p.fotoPengurus || '/img/bemfkgumi.png';
+                    const desc = p.shortDesc || 'Deskripsi program kerja departemen akan segera diperbarui.';
+                    const targetUrl = `/proker-deskripsi/${p.id}`;
+
+                    // SCRIPT MENGIKUTI DESAIN GBR 2 & GBR 3 (UPDATED DIMENSION 900x600 / Rasio 3:2 secara absolut)
+                    pCont.innerHTML += `
+                        <div class="proker-card-apple reveal active" 
+                             style="aspect-ratio: 3/2; width: 100%; max-width: 900px; margin: 0 auto; display: block; position: relative; overflow: hidden; border-radius: 24px; box-shadow: 0 15px 35px var(--card-shadow); cursor: pointer;" 
+                             onclick="window.location.href='${targetUrl}'" tabindex="0" role="button" aria-label="Lihat detail program kerja departemen ${p.dept}" onkeydown="if(event.key==='Enter') window.location.href='${targetUrl}'">
+                            
+                            <!-- Background Image Latar Kartu (Foto Pengurus 3:2 / 900x600) -->
+                            <img src="${bgImg}" alt="Foto Pengurus ${p.dept}" class="pca-bg-img" loading="lazy" width="900" height="600" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                            <div class="pca-default-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.65); z-index: 2;"></div>
+                            
+                            <!-- Default State Content -->
+                            <div class="pca-default-content" style="position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; padding: 20px; transition: transform 0.4s ease, opacity 0.4s ease;">
+                                <div class="pca-icon-wrapper" style="width: 75px; height: 75px; background: #fde047; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
+                                    <img src="/img/bemfkgumi.png" alt="Icon ${p.dept}" class="pca-icon" loading="lazy" width="45" height="45" style="object-fit: contain;">
+                                </div>
+                                <h3 class="pca-title" style="font-size: 1.5rem; color: #ffffff; font-weight: 800; text-align: center; margin: 0; text-shadow: 0 4px 10px rgba(0,0,0,0.8);">${p.dept}</h3>
+                            </div>
+                            
+                            <!-- Hover State Content -->
+                            <div class="pca-hover-content" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #10b981 0%, #047857 100%); padding: 40px 30px; display: flex; flex-direction: column; z-index: 10; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);">
+                                <h3 class="pca-hover-title" style="font-size: 1.6rem; color: #ffffff; font-weight: 900; margin-bottom: 15px; text-transform: uppercase;">${p.dept}</h3>
+                                <p class="pca-hover-desc" style="font-size: 1.05rem; color: rgba(255, 255, 255, 0.95); line-height: 1.6; margin-bottom: auto; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden;">${desc}</p>
+                                <div class="pca-btn-wrap" style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+                                    <span class="pca-btn-text" style="color: #ffffff; font-weight: 700; border: 1px solid rgba(255,255,255,0.4); padding: 10px 20px; border-radius: 30px; transition: background 0.3s;">Detail Proker</span>
+                                    <div class="pca-btn-circle" style="width: 45px; height: 45px; background: #fde047; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 22px; height: 22px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            } else { 
+                pCont.innerHTML = `<div style="text-align:center; grid-column: 1/-1; color: var(--text-muted); padding: 50px 0;">Data departemen belum dipublikasikan Admin.</div>`; 
+            }
+        }
+
+        function renderDokumentasi(docData) {
+            const gCont = document.getElementById('galleryContainer'); gCont.innerHTML = '';
+            if(docData && docData.length > 0) {
+                window.globalDocData = docData; 
+                docData.forEach((d, i) => {
+                    const fallbackImg = d.foto ? d.foto : '/img/bemfkgumi.png';
+                    gCont.innerHTML += `<div class="gallery-card" onclick="openDoc(${i})"><div style="width: 100%; height: 100%; background: var(--bg-dark-overlay); display:flex; align-items:center; justify-content:center;"><img src="${fallbackImg}" class="gallery-img" alt="${d.judul}" loading="lazy" width="300" height="225"></div><div class="gallery-info" style="background: linear-gradient(to top, var(--bg-dark-heavy), transparent);"><h4 style="color: var(--accent-neon);">${d.judul}</h4><span style="font-size:0.85rem; color: var(--text-muted);">${formatTgl(d.tanggal)}</span></div></div>`;
+                });
+            } else { gCont.innerHTML = `<div style="text-align:center; grid-column: 1/-1; color: var(--text-muted);">Belum ada dokumentasi.</div>`; }
+        }
+
+        function formatTgl(tglStr) { if(!tglStr) return ''; const d = new Date(tglStr); if(isNaN(d)) return tglStr; return `${d.getDate()} ${monthNames[d.getMonth()]} ${d.getFullYear()}`; }
+        
+        function openDoc(idx) {
+            const d = window.globalDocData[idx];
+            document.getElementById('docImg').src = d.foto || '/img/bemfkgumi.png';
+            document.getElementById('docTitle').innerText = d.judul;
+            document.getElementById('docDate').innerHTML = `🗓️ ${formatTgl(d.tanggal)}`;
+            document.getElementById('docDesc').innerText = d.deskripsi;
+            document.getElementById('docModal').classList.add('active');
+        }
+
+        function gantiBulan(dir) { curDate.setMonth(curDate.getMonth() + dir); renderCalendar(); tampilkanAgendaSebulan(); }
+        
+        function renderCalendar() {
+            const year = curDate.getFullYear(); const month = curDate.getMonth();
+            document.getElementById('namaBulanTahun').innerText = `${monthNames[month]} ${year}`;
+            
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            
+            let gridHTML = `<div class="calendar-day-name">MIN</div><div class="calendar-day-name">SEN</div><div class="calendar-day-name">SEL</div><div class="calendar-day-name">RAB</div><div class="calendar-day-name">KAM</div><div class="calendar-day-name">JUM</div><div class="calendar-day-name">SAB</div>`;
+            for(let i=0; i<firstDay; i++) gridHTML += `<div></div>`;
+            
+            for(let d=1; d<=daysInMonth; d++) {
+                const isEvent = kalenderData.some(ev => { 
+                    if(!ev.tglMulai) return false; 
+                    const eStart = new Date(ev.tglMulai);
+                    const eEnd = ev.tglSelesai ? new Date(ev.tglSelesai) : eStart;
+                    const checkDate = new Date(year, month, d);
+                    eStart.setHours(0,0,0,0); eEnd.setHours(0,0,0,0); checkDate.setHours(0,0,0,0);
+                    return checkDate >= eStart && checkDate <= eEnd;
+                });
+                
+                gridHTML += `<div class="calendar-day ${isEvent ? 'has-event' : ''}" onclick="pilihTanggal(${d}, ${month}, ${year}, this)" id="day-${d}" role="button" tabindex="0">${d}</div>`;
+            }
+            document.getElementById('calGrid').innerHTML = gridHTML;
+        }
+
+        function formatTglRange(startStr, endStr) {
+            if(!startStr) return "-";
+            const s = new Date(startStr); const e = endStr ? new Date(endStr) : s;
+            if(s.getTime() === e.getTime()) return `${s.getDate()} ${monthNames[s.getMonth()]} ${s.getFullYear()}`;
+            if(s.getMonth() === e.getMonth() && s.getFullYear() === e.getFullYear()) return `${s.getDate()} - ${e.getDate()} ${monthNames[s.getMonth()]} ${s.getFullYear()}`;
+            return `${s.getDate()} ${monthNames[s.getMonth()]} - ${e.getDate()} ${monthNames[e.getMonth()]} ${s.getFullYear()}`;
+        }
+
+        function getAgendaStatus(startStr, endStr) {
+            if(!startStr) return { text: "INFO", class: "badge-selesai" };
+            const today = new Date(); today.setHours(0,0,0,0);
+            const s = new Date(startStr); s.setHours(0,0,0,0);
+            const e = endStr ? new Date(endStr) : s; e.setHours(0,0,0,0);
+            if(today >= s && today <= e) return { text: "PROKER SEDANG BERLANGSUNG", class: "badge-berlangsung" };
+            if(today < s) return { text: "PROKER SEGERA HADIR", class: "badge-segera" };
+            return { text: "SELESAI DILAKSANAKAN", class: "badge-selesai" };
+        }
+
+        function tampilkanAgendaSebulan() {
+            document.querySelectorAll('.calendar-day').forEach(el => el.classList.remove('active'));
+            const year = curDate.getFullYear(); const month = curDate.getMonth();
+            document.getElementById('agendaSubtitle').innerText = "DAFTAR AGENDA BULAN INI";
+            document.getElementById('agendaTglFormat').innerHTML = `<span style="font-size: 1.2rem; display:block; color: var(--text-light); margin-bottom: 5px;">${monthNames[month]} ${year}</span>`;
+            
+            const events = kalenderData.filter(ev => { 
+                if(!ev.tglMulai) return false; 
+                const s = new Date(ev.tglMulai); const e = ev.tglSelesai ? new Date(ev.tglSelesai) : s;
+                const startBulanAktif = new Date(year, month, 1);
+                const endBulanAktif = new Date(year, month + 1, 0);
+                return (s <= endBulanAktif && e >= startBulanAktif);
+            });
+            renderAgendaList(events);
+        }
+
+        function pilihTanggal(d, m, y, elem) {
+            document.querySelectorAll('.calendar-day').forEach(el => el.classList.remove('active'));
+            const targetElem = elem || document.getElementById(`day-${d}`);
+            if(targetElem) targetElem.classList.add('active');
+
+            const checkDate = new Date(y, m, d); checkDate.setHours(0,0,0,0);
+            document.getElementById('agendaSubtitle').innerText = "DAFTAR AGENDA PADA TANGGAL";
+            document.getElementById('agendaTglFormat').innerHTML = `<span style="font-size: 1rem; display:block; color: var(--text-muted); margin-bottom: 5px;">${dayNames[checkDate.getDay()]},</span> ${d} ${monthNames[m]} ${y}`;
+            
+            const events = kalenderData.filter(ev => { 
+                if(!ev.tglMulai) return false; 
+                const s = new Date(ev.tglMulai); s.setHours(0,0,0,0);
+                const e = ev.tglSelesai ? new Date(ev.tglSelesai) : s; e.setHours(0,0,0,0);
+                return checkDate >= s && checkDate <= e; 
+            });
+            renderAgendaList(events);
+        }
+
+        function renderAgendaList(events) {
+            const cont = document.getElementById('agendaContent'); cont.innerHTML = '';
+            if(events.length > 0) {
+                events.sort((a,b) => new Date(b.tglMulai) - new Date(a.tglMulai));
+                events.forEach(e => { 
+                    const status = getAgendaStatus(e.tglMulai, e.tglSelesai);
+                    cont.innerHTML += `
+                    <div class="agenda-card">
+                        <div class="agenda-card-header">
+                            <span class="${status.class}">${status.text}</span>
+                        </div>
+                        <h4 style="color:var(--text-light); margin: 0 0 5px; font-size: 1.3rem;">${e.nama}</h4>
+                        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom: 15px;"><svg viewBox="0 0 24 24" style="width:14px; fill:currentColor; vertical-align:-2px; margin-right:4px;" aria-hidden="true"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg> ${formatTglRange(e.tglMulai, e.tglSelesai)}</p>
+                        <p style="font-size:0.9rem; color:var(--text-muted); border-top: 1px solid var(--border-light); padding-top: 10px;">🏢 ${e.dept}</p>
+                        
+                        <a href="/proker-detail/${e.slug || e.id}" class="agenda-btn" aria-label="Lihat detail program kerja ${e.nama}">Detail Kegiatan &rarr;</a>
+                    </div>`; 
+                });
+            } else { 
+                cont.innerHTML = `<div style="text-align:center; padding: 40px 0; color: var(--text-muted);">📭 Tidak ada agenda pada waktu ini.</div>`; 
+            }
+        }
+
+        function renderTimelineProker() {
+            const cont = document.getElementById('timelineProkerContainer');
+            cont.innerHTML = '';
+            
+            if(!kalenderData || kalenderData.length === 0) {
+                cont.innerHTML = `<div style="text-align:center; color: var(--text-muted); width:100%; padding: 40px 0;">📭 Belum ada program kerja yang diagendakan.</div>`;
+                return;
+            }
+
+            const sortedData = [...kalenderData].sort((a,b) => new Date(b.tglMulai) - new Date(a.tglMulai));
+            
+            sortedData.forEach((e, idx) => {
+                const status = getAgendaStatus(e.tglMulai, e.tglSelesai);
+                const formatWaktu = formatTglRange(e.tglMulai, e.tglSelesai);
+                const bannerImg = e.banner || '/img/bemfkgumi.png';
+                
+                let shortDesc = e.deskripsi ? e.deskripsi.replace(/\n/g, ' ') : 'Tidak ada deskripsi singkat untuk program kerja ini.';
+                if(shortDesc.length > 110) shortDesc = shortDesc.substring(0, 110) + '...';
+                
+                let badgeStyle = "background: var(--bg-dark-overlay); color: var(--text-light); border: 1px solid var(--border-light);";
+                if(status.text.includes("BERLANGSUNG")) badgeStyle = "background: #2563eb; color: #ffffff; border: 1px solid #60a5fa;";
+                else if(status.text.includes("HADIR")) badgeStyle = "background: var(--accent-neon); color: #000000; border: 1px solid var(--accent-glow);";
+
+                cont.innerHTML += `
+                    <div class="v-timeline-item reveal active" style="transition-delay: ${idx * 0.15}s">
+                        <div class="v-timeline-dot"></div>
+                        <div class="v-timeline-card">
+                            <div class="v-tl-banner">
+                                <div class="v-tl-badge" style="${badgeStyle}">${status.text}</div>
+                                <img src="${bannerImg}" alt="Banner ${e.nama}" width="400" height="170" loading="lazy">
+                            </div>
+                            <div class="v-tl-meta">
+                                <span style="color: var(--accent-neon);">${e.dept || 'BEM KBMFKG UMI'}</span>
+                                <span style="color: var(--border-light);" aria-hidden="true">•</span>
+                                <span>${formatWaktu}</span>
+                            </div>
+                            <h3 class="v-tl-title">${e.nama}</h3>
+                            <p class="v-tl-desc">🔥 ${shortDesc}</p>
+                            <a href="/proker-detail/${e.slug || e.id}" class="v-tl-btn" aria-label="Lihat detail timeline ${e.nama}">Lihat Detail &rarr;</a>
+                        </div>
+                    </div>
+                `;
+            });
+            cont.innerHTML += `<div style="clear:both;" aria-hidden="true"></div>`;
+        }
+
+        document.getElementById('plasmaForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            btn.innerText = "Mengirim..."; btn.disabled = true;
+
+            const judul = document.getElementById('judul').value;
+            const kategori = document.getElementById('kategori').value;
+            const jenis = document.querySelector('input[name="jenis"]:checked').value;
+            const isi = document.getElementById('isi').value;
+            
+            let buktiBase64 = null;
+            const fileInput = document.getElementById('bukti');
+            if(fileInput.files.length > 0) {
+                const reader = new FileReader();
+                reader.readAsDataURL(fileInput.files[0]);
+                reader.onload = async () => {
+                    buktiBase64 = reader.result;
+                    await kirimDataPlasma(judul, kategori, jenis, isi, buktiBase64, btn);
+                }
+            } else {
+                await kirimDataPlasma(judul, kategori, jenis, isi, buktiBase64, btn);
+            }
+        });
+
+        async function kirimDataPlasma(judul, kategori, jenis, isi, bukti, btn) {
+            try {
+                let apiUrl = '/api/plasma';
+                if(window.location.protocol === 'blob:' || window.location.origin === "null") apiUrl = 'https://bemkbmfkgumi.com/api/plasma';
+                
+                const req = await fetch(apiUrl, {
+                    method: 'POST', headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ judul, kategori, jenis, isi, bukti })
+                });
+                const res = await req.json();
+                
+                const resultDiv = document.getElementById('plasmaResult');
+                resultDiv.style.display = 'block';
+                if(res.success) {
+                    resultDiv.style.background = 'rgba(16, 185, 129, 0.2)'; resultDiv.style.color = '#10b981';
+                    resultDiv.innerHTML = "<strong>✅ Aspirasi berhasil dikirim!</strong><br><span style='font-size:0.9rem; font-weight:normal; color:var(--text-light);'>Terima kasih telah berkontribusi untuk kebaikan BEM KBMFKG UMI.</span>";
+                    document.getElementById('plasmaForm').reset();
+                } else { throw new Error(); }
+            } catch (error) {
+                const resultDiv = document.getElementById('plasmaResult');
+                resultDiv.style.display = 'block';
+                resultDiv.style.background = 'rgba(239, 68, 68, 0.2)'; resultDiv.style.color = '#ef4444';
+                resultDiv.innerText = "⚠️ Gagal mengirim aspirasi. Coba lagi.";
+            }
+            btn.innerText = "Kirim Aspirasi"; btn.disabled = false;
+        }
+    </script>
+</body>
+</html>
