@@ -212,15 +212,28 @@
             <div class="reveal" style="text-align: center; margin-bottom: 40px;">
                 <h2 style="font-size: 3rem; font-weight: 900;">Makna <span style="color: var(--accent-neon);">Filosofi Logo</span></h2>
                 
-                <div style="margin: 30px auto;">
+                <!-- Hanya tampil di Mobile (Slider/Floating logo) -->
+                <div class="mobile-filosofi-ui" style="margin: 30px auto; justify-content: center;">
                     <img src="/img/bemfkgumi.png" alt="Logo Animasi BEM KBMFKG UMI" class="floating-logo" width="160" height="160" loading="lazy">
                 </div>
 
                 <p style="color: var(--text-muted); margin-top: 10px; max-width: 700px; margin: 10px auto 0;">Setiap elemen dalam logo memiliki filosofi yang saling terhubung dan membentuk satu harmoni pergerakan.</p>
             </div>
 
-            <!-- Carousel Cover Flow UI Logo -->
-            <div class="filosofi-slider-wrapper reveal">
+            <!-- DESKTOP UI CANVAS (INTERACTIVE) -->
+            <div class="desktop-filosofi-ui reveal canvas-wrapper">
+                <div class="ui-canvas" id="desktopLogoCanvas">
+                    <div class="center-logo-wrapper">
+                        <div class="logo-container-desktop">
+                            <img src="/img/bemfkgumi.png" alt="Logo KBMFKG UMI" class="logo-img">
+                        </div>
+                    </div>
+                    <!-- UI Cards diinjeksi via JS -->
+                </div>
+            </div>
+
+            <!-- MOBILE UI SLIDER (CAROUSEL) -->
+            <div class="mobile-filosofi-ui filosofi-slider-wrapper reveal">
                 <button class="slider-nav-btn prev" onclick="scrollSlider(-340)" aria-label="Geser slider logo ke kiri">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
                 </button>
@@ -445,25 +458,63 @@
                 console.log("Menggunakan data statis untuk Beranda."); 
             }
 
-            // Render Filosofi Logo Slider (Cover Flow)
-            const track = document.getElementById('indexLogoSlider');
-            track.innerHTML = '';
+            // Render Filosofi Logo (Desktop Canvas & Mobile Slider)
+            const trackMobile = document.getElementById('indexLogoSlider');
+            const canvasDesktop = document.getElementById('desktopLogoCanvas');
+            
+            // Bersihkan konten lama
+            if (trackMobile) trackMobile.innerHTML = '';
+            if (canvasDesktop) canvasDesktop.querySelectorAll('.ui-card').forEach(el => el.remove());
+
             dataFilosofi.logo.forEach((item, idx) => {
-                // Beri Spacer di awal agar kartu pertama bisa berada di tengah layar
-                track.innerHTML += `
-                    <div class="filosofi-slide-card ${idx === 0 ? 'active' : ''}">
-                        <div class="filo-icon-box">${getSvgIcon(item.elemen)}</div>
-                        <h3>${item.elemen}</h3>
-                        <p class="filo-arti"><strong>Arti:</strong> ${item.arti}</p>
-                        <p class="filo-makna"><strong>Makna:</strong> ${item.makna}</p>
-                    </div>
-                `;
+                // 1. Generate Mobile Slide Card
+                if (trackMobile) {
+                    trackMobile.innerHTML += `
+                        <div class="filosofi-slide-card ${idx === 0 ? 'active' : ''}">
+                            <div class="filo-icon-box">${getSvgIcon(item.elemen)}</div>
+                            <h3>${item.elemen}</h3>
+                            <p class="filo-arti" style="color: var(--accent-neon);"><strong>Arti:</strong> ${item.arti}</p>
+                            <p class="filo-makna" style="color: var(--text-light);"><strong>Makna:</strong> ${item.makna}</p>
+                        </div>
+                    `;
+                }
+
+                // 2. Generate Desktop Card dengan penentuan posisi spesifik
+                if (canvasDesktop) {
+                    let posClass = 'pos-default';
+                    const elName = item.elemen.toLowerCase();
+                    if(elName.includes('segitiga')) posClass = 'pos-segitiga';
+                    else if(elName.includes('bintang')) posClass = 'pos-bintang';
+                    else if(elName.includes('tongkat')) posClass = 'pos-tongkat';
+                    else if(elName.includes('ular')) posClass = 'pos-ular';
+                    else if(elName.includes('molar')) posClass = 'pos-molar';
+                    else if(elName.includes('phinisi') || elName.includes('perahu')) posClass = 'pos-phinisi';
+                    else if(elName.includes('2014')) posClass = 'pos-2014';
+
+                    let descHTML = '';
+                    if(item.makna) {
+                        descHTML = `
+                            <div class="card-text"><span class="badge arti">Arti</span> ${item.arti}</div>
+                            <div class="card-text"><span class="badge makna">Makna</span> ${item.makna}</div>
+                        `;
+                    } else {
+                        descHTML = `<div class="card-text">${item.arti}</div>`;
+                    }
+
+                    canvasDesktop.innerHTML += `
+                        <div class="ui-card ${posClass}">
+                            <div class="css-arrow"></div>
+                            <div class="card-title">${item.elemen}</div>
+                            ${descHTML}
+                        </div>
+                    `;
+                }
             });
             // Spacer di akhir agar kartu terakhir bisa ke tengah
-            track.innerHTML += `<div style="flex: 0 0 10vw;" aria-hidden="true"></div>`;
-
-            // Inisiasi Logika Deteksi Tengah (Intersection)
-            initSliderLogic();
+            if (trackMobile) {
+                trackMobile.innerHTML += `<div style="flex: 0 0 10vw;" aria-hidden="true"></div>`;
+                initSliderLogic();
+            }
             
             // Render Filosofi Warna Pills
             globalWarnaData = dataFilosofi.warna;
